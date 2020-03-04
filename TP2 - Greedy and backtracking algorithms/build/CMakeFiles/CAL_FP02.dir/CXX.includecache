@@ -6,11 +6,21 @@
 
 #IncludeRegexTransform: 
 
-/home/joao/Desktop/FEUP/CAL/TP2 - Greedy and backtracking algorithms/Tests/Labirinth.cpp
-Labirinth.h
-/home/joao/Desktop/FEUP/CAL/TP2 - Greedy and backtracking algorithms/Tests/Labirinth.h
+/home/joao/Desktop/FEUP/CAL/TP2 - Greedy and backtracking algorithms/Tests/Sudoku.cpp
+Sudoku.h
+/home/joao/Desktop/FEUP/CAL/TP2 - Greedy and backtracking algorithms/Tests/Sudoku.h
+
+/home/joao/Desktop/FEUP/CAL/TP2 - Greedy and backtracking algorithms/Tests/Sudoku.h
+string
+-
+sstream
+-
 iostream
 -
-
-/home/joao/Desktop/FEUP/CAL/TP2 - Greedy and backtracking algorithms/Tests/Labirinth.h
+stdio.h
+-
+stdlib.h
+-
+time.h
+-
 

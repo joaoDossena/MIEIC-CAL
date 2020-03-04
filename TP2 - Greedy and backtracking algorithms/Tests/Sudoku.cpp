@@ -94,7 +94,13 @@ bool Sudoku::isComplete()
  */
 bool Sudoku::solve()
 {
-	
+	if(isComplete())
+		return true;
+
+	int x = 0, y = 0;
+	set<int> m = {};
+
+
 	return false;
 }
 
