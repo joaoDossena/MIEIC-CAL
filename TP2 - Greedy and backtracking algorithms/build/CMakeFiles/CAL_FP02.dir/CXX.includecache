@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/joao/Desktop/FEUP/CAL/TP2 - Greedy and backtracking algorithms/Tests/Labirinth.cpp
+Labirinth.h
+/home/joao/Desktop/FEUP/CAL/TP2 - Greedy and backtracking algorithms/Tests/Labirinth.h
+iostream
+-
+
+/home/joao/Desktop/FEUP/CAL/TP2 - Greedy and backtracking algorithms/Tests/Labirinth.h
+
