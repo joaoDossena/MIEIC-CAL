@@ -1,6 +1,12 @@
 # CAL
 
-## To do:
+## List of Contents:
+  - TP1: Dynamic Programming
+  - TP2: Greedy and Backtracking Algorithms
+  - TP3: Divide-and-Conquer Algorithms
+
+
+### To do:
   - [x] TP1.1: Factorial
   - [x] TP1.2: Change
   - [ ] TP1.3: 
