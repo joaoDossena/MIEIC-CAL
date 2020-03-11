@@ -1,6 +1,6 @@
-#CAL
+# CAL
 
-##To do:
+## To do:
   -[x] TP1.1: Factorial
   -[x] TP1.2: Change
   -[ ] TP1.3: 
