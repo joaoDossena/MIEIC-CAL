@@ -1,9 +1,9 @@
 # CAL
 
 ## List of Contents:
-  - [TP1: Dynamic Programming](TP1 - Dynamic Programming)
-  - [TP2: Greedy and Backtracking Algorithms](TP2 - Greedy and Backtracking Algorithms)
-  - [TP3: Divide-and-Conquer Algorithms](TP3 - Divide-and-Conquer Algorithms)
+  - TP1: Dynamic Programming
+  - TP2: Greedy and Backtracking Algorithms
+  - TP3: Divide-and-Conquer Algorithms
 
 
 ### To do:
