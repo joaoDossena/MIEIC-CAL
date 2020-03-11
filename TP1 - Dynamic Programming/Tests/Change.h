@@ -7,6 +7,7 @@
 
 #include <climits>
 #include <string>
+#include <sstream>
 using namespace std;
 
 /* Calcula o troco num determinado montante m, utilizando um n�mero m�nimo

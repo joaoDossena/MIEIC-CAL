@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/joao/Desktop/FEUP/CAL/TP3 - Divide-and-Conquer Algorithms/Tests/NearestPoints.cpp
+limits
+-
+thread
+-
+algorithm
+-
+cmath
+-
+NearestPoints.h
+/home/joao/Desktop/FEUP/CAL/TP3 - Divide-and-Conquer Algorithms/Tests/NearestPoints.h
+Point.h
+/home/joao/Desktop/FEUP/CAL/TP3 - Divide-and-Conquer Algorithms/Tests/Point.h
+ctime
+-
+
+/home/joao/Desktop/FEUP/CAL/TP3 - Divide-and-Conquer Algorithms/Tests/NearestPoints.h
+Point.h
+/home/joao/Desktop/FEUP/CAL/TP3 - Divide-and-Conquer Algorithms/Tests/Point.h
+
+/home/joao/Desktop/FEUP/CAL/TP3 - Divide-and-Conquer Algorithms/Tests/Point.h
+iostream
+-
+vector
+-
+

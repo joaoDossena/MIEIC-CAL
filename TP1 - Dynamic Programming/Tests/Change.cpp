@@ -4,38 +4,40 @@
 
 #include "Change.h"
 
-int minCoins(int m, int numCoins, int *coinValues)
+string calcChange(int m, int numCoins, int *coinValues)
 {
-	int table[m+1];
-	table[0] = 0;
+	int INF = m + 1;
+	int minCoins[m+1];
+	int lastCoin[m+1] = {0};
 
-	for(unsigned int i = 1; i <= m; i++)
-		table[i] = INT_MAX;
-
-	for(unsigned int i = 1; i <= m; i++)
+	//Initializing for the base case of no coins used
+	minCoins[0] = 0; //Empty solution
+	for(int k = 1; k <= m; k++)
 	{
-		for(unsigned int j = 0; j < numCoins; j++)
+		minCoins[k] = INF; //No solution
+	}
+
+	for(int i = 1; i <= numCoins; i++) //Filling the tables
+	{
+		for(int k = coinValues[i-1]; k <= m; k++)
 		{
-			if(coinValues[j] <= i)
+			if(minCoins[k - coinValues[i-1]] + 1 < minCoins[k])
 			{
-				int sub_res = table[i - coinValues[j]];
-				if (sub_res != INT_MAX && sub_res + 1 < table[i]) 
-                  table[i] = sub_res + 1; 
+				minCoins[k] = 1 + minCoins[k - coinValues[i-1]];
+				lastCoin[k] = coinValues[i-1];
 			}
 		}
 	}
 
-	return table[m];
-}
 
-string calcChange(int m, int numCoins, int *coinValues)
-{
-	bool found = false;
-	if(m == 0)
-		return "";
-	int min = minCoins(m, numCoins, coinValues);
+	//Transforming result in a string
+	if(minCoins[m] == INF)
+		return "-"; //No solution
+	ostringstream oss;
+	for(int k = m; k > 0; k -= lastCoin[k])
+	{
+		oss << lastCoin[k] << ";";
+	}
 
-
-	return "";
-
+	return oss.str();
 }
