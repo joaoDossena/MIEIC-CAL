@@ -1,4 +1,7 @@
 # CAL
+This repository has my activities for the subject of CAL
+
+Grade: To-be-graded/20
 
 ## List of Contents:
   - TP1: Dynamic Programming
