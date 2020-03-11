@@ -4,6 +4,8 @@
   - TP1: Dynamic Programming
   - TP2: Greedy and Backtracking Algorithms
   - TP3: Divide-and-Conquer Algorithms
+  - TP4: 
+  - TP5: 
 
 
 ### To do:
@@ -17,3 +19,5 @@
 
   - [x] TP3.1: Points - Brute Force
   - [ ] TP3.2: Points - Divide and Conquer
+
+  - [ ] TP5.1: 
