@@ -59,7 +59,7 @@ Result nearestPoints_BF(vector<Point> &vp)
 	if(vp.size() == 2)
 		return res;
 
-	for(vector<Point>::iterator it1 = vp.begin() + 1; it1 != vp.end(); it1++)
+	for(vector<Point>::iterator it1 = vp.begin(); it1 != vp.end(); it1++)
 	{
 		if(found == true)
 			break;
@@ -106,7 +106,7 @@ Result nearestPoints_BF_SortByX(vector<Point> &vp) {
 	if(vp.size() == 2)
 		return res;
 
-	for(vector<Point>::iterator it1 = vp.begin() + 1; it1 != vp.end(); it1++)
+	for(vector<Point>::iterator it1 = vp.begin(); it1 != vp.end(); it1++)
 	{
 		if(found == true)
 			break;
@@ -152,17 +152,26 @@ static void npByY(vector<Point> &vp, int left, int right, Result &res)
  */
 static Result np_DC(vector<Point> &vp, int left, int right, int numThreads) {
 	// Base case of two points
-	// TODO
+	if(vp.size() == 2)
+		return Result(vp.at(0).distance(vp.at(1)), vp.at(0), vp.at(1));
 
 	// Base case of a single point: no solution, so distance is MAX_DOUBLE
-	// TODO
+	if(vp.size() == 1)
+		return Result();
 
 	// Divide in halves (left and right) and solve them recursively,
 	// possibly in parallel (in case numThreads > 1)
-	// TODO
+	if(numThreads == 1)
+	{
+		Result resLeft = np_DC(vp, left, (left+right)/2 - 1, 1);
+		Result resRight = np_DC(vp, (left+right)/2, right, 1);
+	}
 
 	// Select the best solution from left and right
-	// TODO
+	if(resLeft.dmin <= resRight.dmin)
+		Result res = resLeft;
+	else
+		Result res = resRight;
 
 	// Determine the strip area around middle point
 	// TODO
@@ -193,6 +202,7 @@ void setNumThreads(int num)
  * Divide and conquer approach, single-threaded version.
  */
 Result nearestPoints_DC(vector<Point> &vp) {
+	
 	sortByX(vp, 0, vp.size() -1);
 	return np_DC(vp, 0, vp.size() - 1, 1);
 }
