@@ -7,20 +7,30 @@ Grade: To-be-graded/20
   - TP1: Dynamic Programming
   - TP2: Greedy and Backtracking Algorithms
   - TP3: Divide-and-Conquer Algorithms
-  - TP4: 
-  - TP5: 
+  - TP4: Graphs - Representation, Breadth-first and Depth-first Search and Topological Sort
+  - TP5: Shortest path algorithms in unweighted and weighted graphs (Dijkstra's, Bellman-Ford's, Floyd-Warshall's)
 
 
 ### To do:
-  - [x] TP1.1: Factorial
-  - [x] TP1.2: Change
-  - [ ] TP1.3: Smallest Sum Contiguous Subarrays
-  - [ ] TP1.4: Partitioning a Set
+  - [ ] TP1
+    - [x] Factorial
+    - [x] Change
+    - [ ] Smallest Sum Contiguous Subarrays
+    - [ ] Partitioning a Set
 
-  - [x] TP2.1: Labyrinth
-  - [ ] TP2.2: Sudoku
+  - [ ] TP2
+    - [x] Labyrinth
+    - [ ] Sudoku
 
-  - [x] TP3.1: Points - Brute Force
-  - [ ] TP3.2: Points - Divide and Conquer
+  - [ ] TP3
+    - [x] Points - Brute Force
+    - [ ] Points - Divide and Conquer
 
-  - [ ] TP5.1: 
+  - [ ] TP4
+    - [ ] 
+
+  - [ ] TP5
+    - [x] Shortest path on unweighted graph
+    - [x] Dijkstra's algorithm (Weights)
+    - [ ] Bellman-Ford's algorithm (Negative weights)
+    - [ ] Floyd-Warshall's algorithm (All pairs of vertices)

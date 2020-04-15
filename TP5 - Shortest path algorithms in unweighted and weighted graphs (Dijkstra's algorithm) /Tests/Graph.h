@@ -109,10 +109,10 @@ public:
 	vector<Vertex<T> *> getVertexSet() const;
 
 	// Fp05 - single source
-	void unweightedShortestPath(const T &s);    //TODO...
-	void dijkstraShortestPath(const T &s);      //TODO...
+	void unweightedShortestPath(const T &s);    
+	void dijkstraShortestPath(const T &s);
 	void bellmanFordShortestPath(const T &s);   //TODO...
-	vector<T> getPathTo(const T &dest) const;   //TODO...
+	vector<T> getPathTo(const T &dest) const;   
 
 	// Fp05 - all pairs
 	void floydWarshallShortestPath();   //TODO...
@@ -172,27 +172,121 @@ bool Graph<T>::addEdge(const T &sourc, const T &dest, double w) {
 /**************** Single Source Shortest Path algorithms ************/
 
 template<class T>
-void Graph<T>::unweightedShortestPath(const T &orig) {
-	// TODO
+void Graph<T>::unweightedShortestPath(const T &orig) 
+{
+	queue<Vertex<T>*> queue;
+	
+	for(Vertex<T>* v : this->vertexSet)
+	{
+		v->dist = INF;
+		v->path = NULL;
+	}
+
+	Vertex<T>* v = findVertex(orig);
+	v->dist = 0;
+
+	queue.push(v);
+
+	while(!queue.empty())
+	{
+		v = queue.front();
+		queue.pop();
+		for(Edge<T> e : v->adj)
+			if(e.dest->dist == INF)
+			{
+				queue.push(e.dest);
+				e.dest->dist = v->dist + 1;
+				e.dest->path = v;
+			}
+	}
+
+
 }
 
 
 template<class T>
-void Graph<T>::dijkstraShortestPath(const T &origin) {
-	// TODO
+void Graph<T>::dijkstraShortestPath(const T &origin) 
+{
+	MutablePriorityQueue<Vertex<T>> q;
+	bool insert = false;
+	
+	for(Vertex<T>* v : this->vertexSet) //Initializing vertexes of the graph
+	{
+		v->dist = INF;
+		v->path = NULL;
+	}
+
+	Vertex<T>* v = findVertex(origin);
+	v->dist = 0;
+
+	q.insert(v);
+
+	while(!q.empty())
+	{
+		v = q.extractMin();
+		for(Edge<T> e : v->adj)
+			if(e.dest->dist > v->dist + e.weight)
+			{
+				insert = (e.dest->dist == INF);
+
+				e.dest->dist = v->dist + e.weight;
+				e.dest->path = v;
+
+				if(insert)
+					q.insert(e.dest);
+				else
+					q.decreaseKey(e.dest);
+			}
+	}
+
 }
 
 
 template<class T>
-void Graph<T>::bellmanFordShortestPath(const T &orig) {
+void Graph<T>::bellmanFordShortestPath(const T &orig) 
+{
 	// TODO
+
+
+	for(Vertex<T>* v : this->vertexSet) //Initializing vertexes of the graph
+	{
+		v->dist = INF;
+		v->path = NULL;
+	}
+
+	Vertex<T>* v = findVertex(origin);
+	v->dist = 0;
+
+	for(unsigned int i = 1; i < this->vertexSet.size(); i++)
+	{
+		for()
+	}
 }
 
 
 template<class T>
-vector<T> Graph<T>::getPathTo(const T &dest) const{
+vector<T> Graph<T>::getPathTo(const T &dest) const
+{
+	bool done = false;
 	vector<T> res;
-	// TODO
+	Vertex<T>* v = findVertex(dest);
+
+	if(v == NULL)
+		return res;
+
+	while(done != true)
+	{
+		res.push_back(v->getInfo());
+
+		if(v->getDist() == 0)
+			done = true;
+		else
+			v = v->getPath();
+
+	}
+
+	reverse(res.begin(), res.end());
+
 	return res;
 }
 
@@ -201,12 +295,14 @@ vector<T> Graph<T>::getPathTo(const T &dest) const{
 /**************** All Pairs Shortest Path  ***************/
 
 template<class T>
-void Graph<T>::floydWarshallShortestPath() {
+void Graph<T>::floydWarshallShortestPath() 
+{
 	// TODO
 }
 
 template<class T>
-vector<T> Graph<T>::getfloydWarshallPath(const T &orig, const T &dest) const{
+vector<T> Graph<T>::getfloydWarshallPath(const T &orig, const T &dest) const
+{
 	vector<T> res;
 	// TODO
 	return res;
