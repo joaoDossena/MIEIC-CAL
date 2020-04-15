@@ -32,7 +32,7 @@ Grade: To-be-graded/20
     - [x] Graphs: Representation and CRUD
     - [x] Depth-first Search
     - [x] Breadth-first Search
-    - [ ] Topological Sort
+    - [x] Topological Sort
     - [ ] Practical Applications
 
   - [ ] TP5
