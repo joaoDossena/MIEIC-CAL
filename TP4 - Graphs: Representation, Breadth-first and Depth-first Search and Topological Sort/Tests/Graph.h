@@ -148,7 +148,7 @@ void Vertex<T>::addEdge(Vertex<T> *d, double w)
 template <class T>
 bool Graph<T>::removeEdge(const T &sourc, const T &dest)
 {
-	Vertex<T>* src = findVertex(sourc), *d = findVertex(dest);
+	Vertex<T> *src = findVertex(sourc), *d = findVertex(dest);
 
 	if(src == NULL || d == NULL)
 	{
@@ -203,13 +203,14 @@ bool Graph<T>::removeVertex(const T &in)
 
 	for(it = this->vertexSet.begin(); it != this->vertexSet.end(); it++)
 	{
-		(*it)->removeEdgeTo(v);
+		this->removeEdge((*it)->info, v->info);
 
 		if((*it)->info == in)
 		{
+			//cout << "Removing vertex of info: " << (*it)->info << endl;
 			found = true;
 			this->vertexSet.erase(it);
-			break;
+			//break;
 		}
 	}
 
@@ -276,9 +277,10 @@ vector<T> Graph<T>::bfs(const T & source) const
 	queue.push(v);
 	v->visited = true;
 
-	while(!queue.isEmpty())
+	while(!queue.empty())
 	{
-		v = queue.pop();
+		v = queue.front();
+		queue.pop();
 		res.push_back(v->info);
 		for(Edge<T> edge : v->adj)
 			if(edge.dest->visited == false)
@@ -301,9 +303,39 @@ vector<T> Graph<T>::bfs(const T & source) const
  */
 
 template<class T>
-vector<T> Graph<T>::topsort() const {
+vector<T> Graph<T>::topsort() const
+{
 	// TODO (26 lines)
 	vector<T> res;
+	queue<Vertex<T>*> queue;
+
+	for(Vertex<T>* vert : this->vertexSet) //Setting every indegree to 0 as an initialization
+		vert->indegree = 0;
+
+	for(Vertex<T>* vert : this->vertexSet)
+		for(Edge<T> edge : vert->adj)
+			edge.dest->indegree++;
+
+	for(Vertex<T>* vert : this->vertexSet)
+		if(vert->indegree == 0)
+			queue.push(vert);
+
+	while(!queue.empty())
+	{
+		Vertex<T> *v = queue.front();
+		queue.pop();
+		res.push_back(v->info);
+		for(Edge<T> edge : v->adj)
+		{
+			edge.dest->indegree--;
+			if(edge.dest->indegree == 0)
+				queue.push(edge.dest);
+		}
+	}
+
+	if(res.size() != this->vertexSet.size())
+		res.resize(0);
+
 	return res;
 }
 
@@ -318,9 +350,42 @@ vector<T> Graph<T>::topsort() const {
  */
 
 template <class T>
-int Graph<T>::maxNewChildren(const T & source, T &inf) const {
+int Graph<T>::maxNewChildren(const T & source, T &inf) const
+{
 	// TODO (28 lines, mostly reused)
-	return 0;
+	Vertex<T>* v = findVertex(source);
+	queue<Vertex<T>*> queue;
+	int maxChildren = v->adj.size();
+	int aux = 0;
+
+	for(Vertex<T>* vert : this->vertexSet) //Setting every vertex as not visited
+		vert->visited = false;
+
+	inf = v->info;
+	queue.push(v);
+	v->visited = true;
+
+	while(!queue.empty())
+	{
+		v = queue.front();
+		queue.pop();
+		aux = 0;
+		for(Edge<T> edge : v->adj)
+			if(edge.dest->visited == false)
+			{
+				aux++;
+				queue.push(edge.dest);
+				edge.dest->visited = true;
+			}
+
+		if(aux > maxChildren)
+		{
+			inf = v->info;
+			maxChildren = aux;
+		}
+	}
+
+	return maxChildren;
 }
 
 /****************** 3b) isDAG   (HOME WORK)  ********************/
