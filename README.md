@@ -42,7 +42,9 @@ Grade: To-be-graded/20
     - [ ] Floyd-Warshall's algorithm (All pairs of vertices)
 
   - [ ] TP6
-    - [ ] 
+    - [ ] Exercise 1
+    - [ ] Exercise 2
+    - [ ] Exercise 3
 
   - [ ] TP7
     - [ ] 
