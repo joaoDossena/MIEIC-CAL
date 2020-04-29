@@ -245,22 +245,37 @@ void Graph<T>::dijkstraShortestPath(const T &origin)
 template<class T>
 void Graph<T>::bellmanFordShortestPath(const T &orig) 
 {
-	// TODO
-
-
+	cout << "Start\n";
 	for(Vertex<T>* v : this->vertexSet) //Initializing vertexes of the graph
 	{
 		v->dist = INF;
 		v->path = NULL;
 	}
 
-	Vertex<T>* v = findVertex(origin);
+	Vertex<T>* v = findVertex(orig);
 	v->dist = 0;
+	
 
-	for(unsigned int i = 1; i < this->vertexSet.size(); i++)
+
+	for(unsigned int i = 0; i < this->vertexSet.size(); i++)
 	{
-		for()
+		Vertex<T> *aux = this->vertexSet.at(i);
+		for(Edge<T> e : aux->adj)
+			if(aux->dist + e.weight < e.dest->dist)
+			{
+				e.dest->dist = aux->dist + e.weight;
+				e.dest->path = aux;
+			}
 	}
+
+
+	for(Edge<T> e : v->adj)
+		if(v->dist + e.weight < e.dest->dist)
+		{
+			cout << "Negative Cycle!\n";
+			break;
+		}
+	cout << "Finish\n";
 }
 
 
