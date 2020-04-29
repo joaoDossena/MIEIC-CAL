@@ -11,6 +11,7 @@ Grade: To-be-graded/20
   - TP5: Shortest path algorithms in unweighted and weighted graphs (Dijkstra's, Bellman-Ford's, Floyd-Warshall's)
   - TP6: Graph Viewer API
   - TP7: Minimum Spanning Trees
+  - TP8: Maximum Flow in Transport Networks
 
 
 ### To do:
@@ -41,10 +42,14 @@ Grade: To-be-graded/20
     - [ ] Bellman-Ford's algorithm (Negative weights)
     - [ ] Floyd-Warshall's algorithm (All pairs of vertices)
 
-  - [ ] TP6
-    - [ ] Exercise 1
-    - [ ] Exercise 2
-    - [ ] Exercise 3
+  - [x] TP6
+    - [x] Exercise 1
+    - [x] Exercise 2
+    - [x] Exercise 3
 
   - [ ] TP7
-    - [ ] 
+    - [ ] Prim's algorithm 
+    - [ ] Kruskal's algorithm
+
+  - [ ] TP8
+    - [ ] Ford-Fulkerson algorithm
